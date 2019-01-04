@@ -1,14 +1,14 @@
-##End-to-End Multi-view Supervision for Single-view Food Volume Estimation
+## End-to-End Multi-view Supervision for Single-view Food Volume Estimation
 
 This is the code for Digital Image Processing course project in 2018 Fall to explore food volume estimation, maintained by Kaiwen Zha and Yanjun Fu.
 
 ![framework](./doc/framework.jpg)
 
-###1. Food Detection
+## 1. Food Detection
 
 We conduct food classification on [Food-101](https://www.vision.ee.ethz.ch/datasets_extra/food-101/) dataset (also on [Recipe-1M](http://pic2recipe.csail.mit.edu/) dataset) by finetuning on pretrained Inception-Resnet-V2 models, where training on multiple GPUs in parallel is enabled by tower loss scheme.
 
-####1.1 Dependencies
+### 1.1 Dependencies
 
 - Python 3.5
 - TensorFlow 1.8.0
@@ -16,7 +16,7 @@ We conduct food classification on [Food-101](https://www.vision.ee.ethz.ch/datas
 
 - Scipy
 
-####1.2 Dataset Preparation
+### 1.2 Dataset Preparation
 
 Here, we take Food-101 dataset as example, and we also conduct classification on Recipe-1M dataset with similar procedures.
 
@@ -36,7 +36,7 @@ Here, we take Food-101 dataset as example, and we also conduct classification on
     cd ..
     ```
 
-####1.3 Training Phase
+### 1.3 Training Phase
 
 - Download Inception-ResNet-V2 pretrained model 
 - Run the model training phase
@@ -44,20 +44,20 @@ Here, we take Food-101 dataset as example, and we also conduct classification on
     python model.py --model=pretrained-inception-resnet-v2 --dataset=../dataset/FOOD101/images
     ```
 
-####1.4 Evaluating Phase
+### 1.4 Evaluating Phase
 
 - Run the model evaluating phase
     ```bash
     python evaluate.py --model=[Pretrained checkpoint] --dataset=[Evaluating dataset]
     ```
 
-###2. Segmentation Mask
+## 2. Segmentation Mask
 
 We use [RefineNet](https://arxiv.org/abs/1611.06612) to segment different food portions from the input image, where we utilize the model pretrained on [PASCAL VOC 2012](http://host.robots.ox.ac.uk/pascal/VOC/) dataset considering that there is no existing large food segmentation dataset, and then we finetune the model with our manually annotated segmentation samples.
 
 ![refinenet](./doc/refinenet.png)
 
-####2.1 Dependencies
+### 2.1 Dependencies
 
 - Python 3.5
 - TensorFlow 1.8.0
@@ -66,7 +66,7 @@ We use [RefineNet](https://arxiv.org/abs/1611.06612) to segment different food p
 - Pillow
 - Pickle
 
-####2.2 Training Phase
+### 2.2 Training Phase
 
 - Convert training data into TFrecord
 
@@ -80,7 +80,7 @@ python convert_pascal_voc_to_tfrecords.py
 python RefineNet/multi_gpu_train.py
 ```
 
-####2.3 Evaluating Phase
+### 2.3 Evaluating Phase
 
 - Download the pretrained models from [here](http://pan.baidu.com/s/1kVefEIj)
 
@@ -90,19 +90,19 @@ python RefineNet/multi_gpu_train.py
 python RefineNet/demo.py
 ```
 
-####2.4 Results
+### 2.4 Results
 
 <center class="half">
     <img src="./doc/seg_prev.jpg" width="350">
     <img src="./doc/seg_post.png" width="350">
 </center>
-###3. Volume Estimation
+## 3. Volume Estimation
 
 We leverage state-of-the-art single image depth estimation method proposed by [Hu et al.](https://arxiv.org/abs/1803.08673) to produce the depth map of an input food image. Due to the lack of existing RGBD food image dataset, we use the model pretrained on [NYU-Depth V2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) and obtain relatively promising results.
 
 ![depth_estimation](./doc/depth_estimation.png)
 
-####3.1 Dependencies
+### 3.1 Dependencies
 
 - Python 3.6
 - Pytorch 0.4.1
@@ -112,11 +112,11 @@ We leverage state-of-the-art single image depth estimation method proposed by [H
 - Scipy
 - Json
 
-####3.2 Preparation
+### 3.2 Preparation
 
 - Download the pretrained model from [here](https://drive.google.com/file/d/1QaUkdOiGpMuzMeWCGbey0sT0wXY0xtsj/view?usp=sharing), and put it on the same directory as the code
 
-#### 3.3 Demo
+### 3.3 Demo
 
 - If you do not want to use your own images, run the following script
 
@@ -134,13 +134,13 @@ python demo.py --img /path/to/your/img --json /path/to/your/json --output /path/
 
 Note that you need to add segmentation json file (with the same format as [labelme](https://github.com/wkentaro/labelme) annotation) for the image in folder /input, and modify the color maps between food types and colors in `mask.py`.
 
-#### 3.4 Depth Estimation Results
+### 3.4 Depth Estimation Results
 
 <center class="half">
     <img src="./doc/seg_prev.jpg" width="350" height="230">
     <img src="./doc/depth_map.png" width="350" height="230">
 </center>
-#### 3.5 Volume Estimation Results
+### 3.5 Volume Estimation Results
 
 <center class="half">
     <img src="./doc/test.jpg" width="350" height="230">
@@ -165,10 +165,10 @@ Volume:
 unit: cm^3
 ```
 
-### Contributors
+## Contributors
 
 This repo is maintained by Kaiwen Zha, and Yanjun Fu.
 
-### Acknowledgement
+## Acknowledgement
 
 Special thanks for the guidance of Prof. Bin Sheng, TA. Yang Wen and TA. Siyuan Pan.
