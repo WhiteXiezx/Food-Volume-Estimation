@@ -99,7 +99,7 @@ python RefineNet/demo.py
 
 ## Volume Estimation
 
-We leverage state-of-the-art single image depth estimation method proposed by [Hu et al.](https://arxiv.org/abs/1803.08673) to produce the depth map of an input food image. Due to the lack of existing RGBD food image dataset, we use the model pretrained on [NYU-Depth V2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) and obtain relatively promising results.
+Firstly, we leverage state-of-the-art single image depth estimation method proposed by [Hu et al.](https://arxiv.org/abs/1803.08673) to produce the depth map of an input food image. Due to the lack of existing RGBD food image dataset, we use the model pretrained on [NYU-Depth V2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) and obtain relatively promising results. Then, after doing system transformation, with the prior knowledge about the plate diameter, we estimate the volume of each food portion combining with segmentation mask.
 
 ![depth_estimation](./doc/depth_estimation.png)
 
