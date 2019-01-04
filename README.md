@@ -1,4 +1,4 @@
-## End-to-End Multi-view Supervision for Single-view Food Volume Estimation
+# End-to-End Multi-view Supervision for Single-view Food Volume Estimation
 
 This is the code for Digital Image Processing course project in 2018 Fall to explore food volume estimation, maintained by Kaiwen Zha and Yanjun Fu.
 
@@ -92,10 +92,10 @@ python RefineNet/demo.py
 
 ### 2.4 Results
 
-<center class="half">
+<div align="center">
     <img src="./doc/seg_prev.jpg" width="350">
     <img src="./doc/seg_post.png" width="350">
-</center>
+</div>
 ## 3. Volume Estimation
 
 We leverage state-of-the-art single image depth estimation method proposed by [Hu et al.](https://arxiv.org/abs/1803.08673) to produce the depth map of an input food image. Due to the lack of existing RGBD food image dataset, we use the model pretrained on [NYU-Depth V2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html) and obtain relatively promising results.
@@ -136,28 +136,29 @@ Note that you need to add segmentation json file (with the same format as [label
 
 ### 3.4 Depth Estimation Results
 
-<center class="half">
+<div align="center">
     <img src="./doc/seg_prev.jpg" width="350" height="230">
     <img src="./doc/depth_map.png" width="350" height="230">
-</center>
+</div>
+
 ### 3.5 Volume Estimation Results
 
-<center class="half">
+<div align="center">
     <img src="./doc/test.jpg" width="350" height="230">
     <img src="./doc/mask.png" width="350" height="230">
-</center>
+</div>
 
-<center class="half">
+<div align="center">
     <img src="./doc/out_grey.png" width="350" height="230">
     <img src="./doc/out_color.png" width="350" height="230">
-</center>
+</div>
 
 - Demonstration
   - Top Left: Raw input image
   - Top Right: Segmentation image
   - Bottom Left: Grey depth map
   - Bottom Right: Colorized depth map
-- Volume Estimation Results
+- Volume
 
 ```python
 Volume:
