@@ -5,7 +5,28 @@ This is the code for Digital Image Processing course project in 2018 Fall to exp
 ![framework](./doc/framework.jpg)
 
 ## Overview
-[TOC]
+
+[End-to-End Multi-view Supervision for Single-view Food Volume Estimation](#end-to-end-multi-view-supervision-for-single-view-food-volume-estimation)
+  - [Overview](#overview)
+  - [Food Detection](#food-detection)
+    - [Dependencies](#dependencies)
+    - [Dataset Preparation](#dataset-preparation)
+    - [Training Phase](#training-phase)
+    - [Evaluating Phase](#evaluating-phase)
+  - [Segmentation Mask](#segmentation-mask)
+    - [Dependencies](#dependencies-1)
+    - [Training Phase](#training-phase-1)
+    - [Evaluating Phase](#evaluating-phase-1)
+    - [Results](#results)
+  - [Volume Estimation](#volume-estimation)
+    - [Dependencies](#dependencies-2)
+    - [Preparation](#preparation)
+    - [Demo](#demo)
+    - [Depth Estimation Results](#depth-estimation-results)
+    - [Volume Estimation Results](#volume-estimation-results)
+  - [Contributors](#contributors)
+  - [Acknowledgement](#acknowledgement)
+
 ## Food Detection
 
 We conduct food classification on [Food-101](https://www.vision.ee.ethz.ch/datasets_extra/food-101/) dataset (also on [Recipe-1M](http://pic2recipe.csail.mit.edu/) dataset) by finetuning on pretrained Inception-Resnet-V2 models, where training on multiple GPUs in parallel is enabled by tower loss scheme.
