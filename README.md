@@ -4,6 +4,8 @@ This is the code for Digital Image Processing course project in 2018 Fall to exp
 
 ![framework](./doc/framework.jpg)
 
+## Overview
+[TOC]
 ## Food Detection
 
 We conduct food classification on [Food-101](https://www.vision.ee.ethz.ch/datasets_extra/food-101/) dataset (also on [Recipe-1M](http://pic2recipe.csail.mit.edu/) dataset) by finetuning on pretrained Inception-Resnet-V2 models, where training on multiple GPUs in parallel is enabled by tower loss scheme.
