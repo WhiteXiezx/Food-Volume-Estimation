@@ -167,7 +167,7 @@ Volume:{'rice': 340.0309850402668, 'vegetable': 65.82886736721441, 'chicken': 18
 
 ## Contributors
 
-This repo is maintained by Kaiwen Zha, and Yanjun Fu.
+This repo is maintained by [Kaiwen Zha](https://github.com/Sunshine-KaiwenZha), and [Yanjun Fu](https://github.com/Dynamite321).
 
 ## Acknowledgement
 
