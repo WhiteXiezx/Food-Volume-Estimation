@@ -97,3 +97,5 @@ def get_volume(img, json_path):
 
     return vol_dict
 
+img = cv2.imread("out.png",0)
+print(get_volume(img,"test.json"))
