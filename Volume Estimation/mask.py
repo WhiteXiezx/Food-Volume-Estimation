@@ -1,5 +1,4 @@
 import cv2
-import os
 import numpy as np
 import json
 from PIL import Image, ImageDraw
@@ -33,7 +32,7 @@ def get_bbox(points, h, w):
 
     return mask2box(mask)
 
-def get_mask(img, json_path, out_path):
+def get_mask(img, json_path):
     with open(json_path, 'r') as json_file:
         data = json.load(json_file)
         mask = np.zeros((img.shape[0], img.shape[1], 3), dtype=np.int)
@@ -51,4 +50,7 @@ def get_mask(img, json_path, out_path):
                     if (cv2.pointPolygonTest(points, (i, j), False) >= 0):
                         mask[j][i] = color[label]
 
-        cv2.imwrite(os.path.join(out_path,"mask.png"), mask)
+        cv2.imwrite("mask.png", mask)
+
+img = cv2.imread("out.png",0)
+get_mask(img, "test.json")
