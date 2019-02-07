@@ -2,8 +2,6 @@
 
 This is the code for Digital Image Processing course project in 2018 Fall to explore food volume estimation, maintained by Kaiwen Zha and Yanjun Fu.
 
-![framework](./doc/framework.jpg)
-
 ## Overview
 
 [End-to-End Multi-view Supervision for Single-view Food Volume Estimation](#end-to-end-multi-view-supervision-for-single-view-food-volume-estimation)
